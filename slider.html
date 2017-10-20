@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Dev slider</title>
+	<style>
+		* {border:0; padding:0;}
+		h1 {font-family:Helvetica; font-weight:normal; font-size:28px;}
+		p,th,td {font-family: Helvetica; font-size:13px; line-height:1.4em;}
+		th {font-weight:bold;}
+		a, a:active, a:link, a:visited {text-decoration:none; color:#4a4;}
+		a:hover {color:#2d2;}
+
+    .slideable {transition:left .4s; }
+    .slider-slide {left:110%; }
+    .slider-slide--enter-from-reverse {left:-110%; }
+    .slider-slide-current {left:-10%; }
+    .slider-slide-outgoing {left:-110%; }
+    .slider-slide-outgoing--reverse {left:110%; }
+
+    .slider-container {position:relative; width:500px; height:370px; background-color:#444; }
+    .slider-slides {position:relative; display:block; height:100%; width:100%; overflow:hidden; }
+    .slider-slide {position:absolute; display:block; top:-10%; height:120%; width:120%; background-size:contain; background-position:center; background-repeat:no-repeat; }
+    .slider-controls {position:absolute; display:block; bottom:0; right:0; width:100%; height:40px; text-align:right; }
+    .slider-control-wrapper {display:inline-block; }
+    .slider-control {position:relative; display:inline-block; margin:10px; background-color:#888; width:20px; height:20px; transition:background-color .4s, opacity .4s; }
+    .slider-control-current {background-color:#ddd; }
+    .slider-control-prev::before, .slider-control-next::before {position:absolute; top:2px; left:2px; height:16px; width:16px; }
+    .slider-control-prev::before {content:"<-"; }
+    .slider-control-next::before {content:"->"; }
+
+    .slider-control-play-pause-wrapper {margin-right:100px; }
+    .slider-control-play, .slider-control-pause {background-color:#bbb; opacity:1; }
+    .slider-control-play::before, .slider-control-play::before {position:absolute; top:2px; left:2px; height:16px; width:16px; }
+    .slider-control-play::before {content:">"; }
+    .slider-control-paused::before {content:"||"; }
+    .slider-playing .slider-play {opacity:.2; }
+    .slider-paused .slider-pause {opacity:.2; }
+
+	</style>
+	<script type="text/javascript" src="./slider.js"></script>
+  <script type="text/javascript">
+    window.addEventListener("load", function () {
+      document.
+        querySelector('.slider-slide--video-content').
+        addEventListener('slideIncoming', function (e) {
+          // Play on slide in.
+        });
+      document.
+        querySelector('.slider-slide--video-content').
+        addEventListener('slideOutgoing', function (e) {
+          // Pause/stop on slide out.
+        });
+    });
+  </script>
+</head>
+<body>
+
+<div id='wrapper'>
+
+<h1>Dev slider</h1>
+
+
+
+
+  <div class="slider-container">
+    <img src="./10.JPG" class="slider-slide-content" />
+    <div class="content slider-slide-content slider-slide--video-content">
+      <iframe src="https://player.vimeo.com/video/148159993" width="400"
+        height="250" frameborder="0" title="Death and Dying at Angola"
+        webkitallowfullscreen mozallowfullscreen allowfullscreen>
+      </iframe>
+    </div>
+    <img src="./11.JPG" class="slider-slide-content" />
+    <div class="slider-slide-content"><p style="text-align:center; margin-top:45%">text slide, oh yeah</p></div>
+    <img src="./12.JPG" class="slider-slide-content" />
+    <img src="./13.JPG" class="slider-slide-content" />
+  </div>
+
+
+
+
+</div>
+
+</body>
+</html>
